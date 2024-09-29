@@ -9,7 +9,7 @@ class AuthController extends Controller
     // Muestra el formulario de registro
     public function register()
     {
-        return view('register');
+        return view('auth/register');
     }
 
     // Procesa el registro
@@ -37,13 +37,13 @@ class AuthController extends Controller
             'password' => password_hash($this->request->getPost('password'),  PASSWORD_ARGON2I)
         ]);
 
-        return redirect()->to('/login')->with('success', 'Registro exitoso. Ahora puedes iniciar sesión.');
+        return redirect()->to('/auth/login')->with('success', 'Registro exitoso. Ahora puedes iniciar sesión.');
     }
 
     // Muestra el formulario de inicio de sesión
     public function login()
     {
-        return view('login');
+        return view('auth/login');
     }
 
     // Procesa el inicio de sesión
@@ -76,7 +76,7 @@ class AuthController extends Controller
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login')->with('success', 'Has cerrado sesión.');
+        return redirect()->to('/auth/login')->with('success', 'Has cerrado sesión.');
     }
     
 }

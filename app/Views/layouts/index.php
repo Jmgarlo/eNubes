@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel XYZ - Página Principal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="<?= base_url('styles.css') ?>">
+    <title>Hotel eNubes - Página Principal</title>
+    <link rel="stylesheet" href="/css/bootstrap-5.3.3-dist/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
@@ -18,7 +17,7 @@
 
             <!-- First row: Login/Register and Change Language -->
             <div class="d-flex justify-content-end w-100 mb-2">
-                <a href="/register" class="me-3 text-light">Registro/Iniciar Sesión</a>
+                <a href="/register" id="registroInicio" class="me-3 text-light">Registro/Iniciar Sesión</a>
                 <a href="/cambiar-idioma" class="text-light">Cambiar Idioma</a>
             </div>
 
@@ -43,61 +42,7 @@
 
 <!-- Main Content -->
 <main>
-    <!-- Image/Video Section -->
-    <div class="main-image">
-        <!-- Placeholder for video or image -->
-    </div>
-
-    <!-- Address and Map -->
-    <div class="text-center my-4">
-        <h3>Dirección del Hotel XYZ</h3>
-        <p>Calle Falsa 123, Madrid, España</p>
-        <a href="#" id="show-map" class="btn btn-secondary">Mostrar en el mapa</a>
-    </div>
-
-    <!-- Hotel Description -->
-    <div class="description text-center">
-        <h3>Descripción del Hotel</h3>
-        <p>El Hotel XYZ es un hotel de lujo con vistas al mar y servicios de primera clase para una estancia inolvidable.</p>
-    </div>
-
-    <!-- Offers Section -->
-    <div class="offers text-center">
-        <h3>Ofertas Especiales</h3>
-        <p>Descuento del 20% para estancias de más de 3 noches.</p>
-    </div>
-
-    <!-- Best Rated Rooms Section -->
-    <div class="best-rooms text-center">
-        <h3>Habitaciones Mejor Valoradas</h3>
-        <!-- Placeholder for best-rated rooms, you can add Bootstrap cards or any other style here -->
-        <div class="row">
-            <div class="col-md-4">Habitación 1</div>
-            <div class="col-md-4">Habitación 2</div>
-            <div class="col-md-4">Habitación 3</div>
-        </div>
-    </div>
-
-    <!-- Suites and Hotel Images -->
-    <div class="hotel-images text-center">
-        <h3>Fotos de nuestras suites y áreas</h3>
-        <div class="row">
-            <div class="col-md-4">Suite 1</div>
-            <div class="col-md-4">Suite 2</div>
-            <div class="col-md-4">Suite 3</div>
-        </div>
-    </div>
-
-    <!-- Amenities Section -->
-    <div class="amenities text-center">
-        <h3>Comodidades del Hotel</h3>
-        <div class="row">
-            <div class="col-md-3">Gimnasio</div>
-            <div class="col-md-3">Spa</div>
-            <div class="col-md-3">Masajes</div>
-            <div class="col-md-3">Piscina</div>
-        </div>
-    </div>
+    <?= $this->renderSection('content') ?> <!-- Sección para contenido específico de cada vista -->
 </main>
 
 <!-- Footer -->
@@ -155,7 +100,8 @@
     <p>©2024 Información exclusiva de eNubes. Todos los derechos reservados.</p>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap-5.3.3-dist/bootstrap.min.js"></script>
+<script src="/js/jquery/jquery-3.7.1.min.js"></script>
 <script src="/js/index.js"></script>
 </body>
 </html>
