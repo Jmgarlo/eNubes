@@ -1,0 +1,62 @@
+/* public/styles.css */
+
+/* Estilos para el header *********************************************************/
+.navbar {
+    padding: 15px; /* Ajusta el padding del navbar */
+}
+
+.navbar a {
+    color: #ffffff; /* Color de texto blanco */
+}
+
+.navbar a:hover {
+    color: #cccccc; /* Color al pasar el mouse */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    border-color: #007bff; /* Color del borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+}
+/*************************************************************************************/
+
+.main-image {
+    background-image: url('img/plantabaja.png'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    width: 100%; /* Ocupar todo el ancho de la página */
+    height: 80vh; /* Ocupar el 80% del alto de la ventana del navegador */
+}
+
+.description, .offers, .best-rooms, .hotel-images, .amenities {
+    padding: 30px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 40px;
+}
+
+.footer h5 {
+    color: #ffffff;
+}
+
+.footer a {
+    color: #bbbbbb;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.copyright {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
