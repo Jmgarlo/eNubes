@@ -1,47 +1,53 @@
-<?= $this->extend('layouts/index') ?>
+<?= $this->extend('layouts/auth') ?>
+
+<?= $this->section('title') ?>Registro - Hotel eNubes<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 
-<h1>Registro</h1>
+<div class="auth-form-section d-flex justify-content-center align-items-center vh-100">
+    <div class="register-container">
+        <h1 class="form-title">CREAR USUARIO</h1>
 
-<form id="registerForm">
-    <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" class="form-control">
-        <div class="error-message" id="nombre-error"></div>
-    </div>
-    <div class="form-group">
-        <label for="apellido1">Primer apellido</label>
-        <input type="text" id="apellido1" name="apellido1" class="form-control">
-        <div class="error-message" id="apellido1-error"></div>
-    </div>
-    <div class="form-group">
-        <label for="apellido2">Segundo apellido</label>
-        <input type="text" id="apellido2" name="apellido2" class="form-control">
-        <div class="error-message" id="apellido2-error"></div>
-    </div>
-     <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" class="form-control">
-        <div class="error-message" id="email-error"></div>
-    </div>
-    <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" class="form-control" placerholder="Escriba su contraseña">
-        <div class="error-message" id="password-error"></div>
-    </div>
-    <div class="form-group">
-        <label for="confirm_password">Confirmar Contraseña</label>
-        <input type="password" id="confirm_password" name="confirm_password" class="form-control" placerholder="Repita su contraseña">
-        <div class="error-message" id="confirm-password-error"></div>
-    </div>
-    <button type="submit" class="btn btn-primary">Registrarse</button>
-    <div id="registerMessage"></div>
-</form>
+        <form id="registerForm" class="register-form">
+            <div class="form-group">
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>
+                <div class="error-message" id="nombre-error"></div>
+            </div>
 
-<p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>.</p>
+            <div class="form-group">
+                <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido" required>
+                <div class="error-message" id="apellido-error"></div>
+            </div>
 
+            <div class="form-group">
+                <input type="text" id="pais" name="pais" class="form-control" placeholder="País" required>
+                <div class="error-message" id="pais-error"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Número de teléfono - 000000000" pattern="[0-9]{9}" required>
+                <div class="error-message" id="telefono-error"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email - ejemplo@correo.com" required>
+                <div class="error-message" id="email-error"></div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" id="submitBtn">Siguiente</button>
+            </div>
+
+            <div id="success-message" style="display: none; color: green;">
+                Registrado con éxito, le hemos enviado un link a su correo para que pueda generar una contraseña.
+            </div>
+        </form>
+
+        <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>.</p>
+    </div>
+</div>
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-    <script src="/js/registro.js"></script>
+<script src="/js/registro.js"></script>
 <?= $this->endSection() ?>

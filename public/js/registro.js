@@ -3,92 +3,73 @@ $(document).ready(function () {
     $("#registerForm").on("submit", function (e) {
       e.preventDefault();
 
+      // Limpiar mensajes de error previos
       $(".error-message").text("");
 
-      let email = $("#email").val().trim();
+      // Obtener valores del formulario
       let nombre = $("#nombre").val().trim();
-      let apellido1 = $("#apellido1").val().trim();
-      let apellido2 = $("#apellido2").val().trim();
-      let password = $("#password").val().trim();
-      let confirmPassword = $("#confirm_password").val().trim();
+      let apellido = $("#apellido").val().trim();
+      let pais = $("#pais").val().trim();
+      let telefono = $("#telefono").val().trim();
+      let email = $("#email").val().trim();
       let formValid = true;
 
+      // Validación de los campos
       if (!nombre) {
         $("#nombre-error").text("Por favor, ingresa tu nombre.");
         formValid = false;
       }
 
-      if (!apellido1) {
-        $("#apellido1-error").text("Por favor, ingresa tu primer apellido.");
+      if (!apellido) {
+        $("#apellido-error").text("Por favor, ingresa tu apellido.");
         formValid = false;
       }
 
-      if (!apellido2) {
-        $("#apellido2-error").text("Por favor, ingresa tu segundo apellido.");
+      if (!pais) {
+        $("#pais-error").text("Por favor, ingresa tu país.");
+        formValid = false;
+      }
+
+      if (!telefono) {
+        $("#telefono-error").text("Por favor, ingresa tu teléfono.");
         formValid = false;
       }
 
       if (!validateEmail(email)) {
-        $("#email-error").text(
-          "Por favor, ingresa un correo electrónico válido."
-        );
+        $("#email-error").text("Por favor, ingresa un correo electrónico válido.");
         formValid = false;
       }
 
-      if (!password) {
-        $("#password-error").text(
-          "Debes escribir una contraseña de al menos 12 caracteres, una mayúscula, una minúscula y un símbolo"
-        );
-        formValid = false;
-      }
-
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{12,}$/;
-      if (!passwordRegex.test(password)) {
-        $("#password-error").text(
-          "La contraseña debe tener al menos 12 caracteres, una mayúscula, una minúscula y un símbolo."
-        );
-        formValid = false;
-      }
-
-      if (password !== confirmPassword) {
-        $("#confirm-password-error").text("Las contraseñas no coinciden.");
-        formValid = false;
-      }
-
+      // Solo enviar datos si el formulario es válido
       if (formValid) {
         let formData = $(this).serialize();
 
         $.ajax({
-          url: "/validregister",
+          url: "/validregister", // Cambia esta URL según tu configuración del backend
           type: "POST",
           data: formData,
           success: (response) => {
             console.log(response);
 
             if (response.success) {
-              $("#registerMessage").html(
-                '<div class="alert alert-success">' +
-                  response.message +
-                  "</div>"
-              );
+              // Mostrar mensaje de éxito
+              $("#success-message").text(response.message).show();
               $("#registerForm")[0].reset();
               window.location.replace(response.redirect);
             } else {
-              $("#registerMessage").html(
-                '<div class="alert alert-danger">' + response.message + "</div>"
-              );
+              // Mostrar mensaje de error
+              $("#registerMessage").html('<div class="alert alert-danger">' + response.message + "</div>");
             }
           },
           error: function (xhr, status, error) {
             console.log(xhr, status, error);
-
-            $("#registerMessage").html(
-              '<div class="alert alert-danger">Error en el servidor. Inténtalo de nuevo más tarde.</div>'
-            );
+            $("#registerMessage").html('<div class="alert alert-danger">Error en el servidor. Inténtalo de nuevo más tarde.</div>');
           },
         });
       }
     });
   };
+
+  // Llamar a la función para manejar el registro
   handleRegistration();
 });

@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Navbar */
+.navbar {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+.navbar a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+}
+.navbar .language-select {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+}
+/* Main Content */
+.auth-container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 56px); /* Altura del navbar */
+  overflow: hidden; /* Evitar que el contenido haga scroll */
+}
+.auth-form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 0; /* Eliminar el padding innecesario */
+  box-sizing: border-box;
+}
+.auth-form-container {
+  width: 100%; /* Hacer que el contenedor del formulario ocupe todo el espacio */
+  max-width: 100%; /* Eliminar cualquier limitación de ancho */
+  padding: 40px; /* Espaciado interno adecuado */
+  background-color: white; /* Fondo blanco para el formulario */
+  border-radius: 0; /* Eliminar el borde redondeado */
+  box-shadow: none; /* Eliminar cualquier sombra */
+  height: 100%; /* Ocupar todo el espacio vertical */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Image Section */
+.auth-image-section {
+  flex: 1;
+  background-image: url('/img/playita.jpeg'); /* Cambia la ruta de la imagen */
+  background-size: cover;
+  background-position: center;
+}
+/* Form Styles */
+.form-control-lg {
+  font-size: 16px;
+  padding: 10px;
+}
+.btn-primary {
+  background-color: #0061a8;
+  border-color: #0061a8;
+}
+.btn-primary:hover {
+  background-color: #004a80;
+  border-color: #004a80;
+}
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/*Registro*/
+
+/* Estilos para el botón */
+.btn-primary {
+    background-color: black; /* Color de fondo negro */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+}
+
+.btn-primary:disabled {
+    background-color: grey; /* Color de fondo gris cuando está deshabilitado */
+    color: white; /* Color del texto blanco */
+}
+
+/* Estilos para los inputs */
+.form-control {
+    border: none; /* Sin borde */
+    border-bottom: 2px solid #ccc; /* Solo borde inferior */
+    border-radius: 0; /* Sin borde redondeado */
+    margin-bottom: 20px; /* Espaciado entre campos */
+}
+
+.form-control:focus {
+    outline: none; /* Sin borde en el enfoque */
+    border-bottom: 2px solid black; /* Borde inferior negro al enfocar */
+}
+
+/* Opcional: Error mensaje */
+.error-message {
+    color: red; /* Color para los mensajes de error */
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+}

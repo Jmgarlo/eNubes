@@ -3,19 +3,64 @@
 namespace App\Controllers;
 
 use App\Models\HabitacionModel;
-use App\Models\FotoHabitacionModel;
 
 class HabitacionController extends BaseController
 {
-    public function filtrarHabitaciones()
-    {
-        $habitacionModel = new HabitacionModel();
-        $habitaciones = $habitacionModel->findAll();
 
-        return $this->response->setJSON($habitaciones);
+    public function index() {
+
+        return view('reservas/filtroHabitaciones');
     }
 
-    public function getHabitaciones()
+    public function filtrarHabitaciones()
+
+    {
+        $habitacionModel = new HabitacionModel();
+        $habitaciones = '';
+        $db      = \Config\Database::connect();
+        $builder = $db->table('habitaciones');
+        $fecha_inicio = $this->request->getGet('fecha_inicio');
+        $fecha_fin = $this->request->getGet('fecha_fin');
+        $capacidad = $this->request->getGet('capacidad');
+        $camas = $this->request->getGet('camas');
+        $baños = $this->request->getGet('baños');
+        $disponibilidad = $this->request->getGet('disponibilidad');
+        $precio = $this->request->getGet('precio');
+        $sort = $this->request->getGet('sort');
+        if ($fecha_inicio && $fecha_fin) {
+            if ($capacidad) {
+                $builder->where('capacidad >=', $capacidad);
+            }
+    
+            if ($camas) {
+                $builder->where('camas >=', $camas);
+            }
+    
+            if ($baños) {
+                $builder->where('baños >=', $baños);
+            }
+    
+            if ($precio) {
+                $builder->where('precio <=', $precio);
+            }
+            if($disponibilidad) {
+                if($disponibilidad == 'on') {
+                    $disponibilidad = 1;
+                } else {
+                    $disponibilidad = 0; 
+                }
+                $builder->where('disponibilidad', $disponibilidad);
+            }
+            $query = $builder->get();
+            $habitaciones = $query->getResult();
+        } else {
+            $habitaciones = $habitacionModel->findAll();
+        }
+
+        return $this->response->setJSON(['habitaciones' => $habitaciones]);
+    }
+
+    public function getHabitacionesIndex()
     {
         $habitacionModel = new HabitacionModel();
 

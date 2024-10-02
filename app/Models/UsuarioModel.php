@@ -8,7 +8,16 @@ class UsuarioModel extends Model
 {
     protected $table = 'usuarios';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre','apellido1','apellido2', 'email', 'password'];
+    protected $allowedFields = ['nombre','apellido', 'pais','telefono', 'email', 'password'];
+
+    public function getUserById($userId)
+    {
+        return $this->asArray()->where(['id' => $userId])->first();
+    }
+
+    
+
+
 }
 
 ?>

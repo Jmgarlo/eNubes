@@ -1,10 +1,9 @@
-/* Tipografía Global */
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
 }
 
-/* Navbar */
+/*Navbar*/
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
@@ -16,76 +15,74 @@ body {
     font-size: 1rem;
 }
 
-/* Sección de Habitaciones */
+/*Habitaciones*/
 
 .descripcion_hotel {
-    max-width: 700px; /* Asegura que la descripción no exceda el ancho de la imagen */
-    margin: 10px auto; /* Centra el texto horizontalmente y añade margen */
-    text-align: center; /* Alinea el texto al centro */
+    max-width: 700px;
+    margin: 10px auto;
+    text-align: center;
 }
 
 .section_title {
-    font-size: 1.8rem; /* Aumentar tamaño de letra de los títulos */
-    margin: 20px 0; /* Espaciado superior e inferior */
-    position: relative; /* Para posicionar la línea */
+    font-size: 1.8rem;
+    margin: 20px 0;
+    position: relative;
 }
 
-/* Estilo para la línea divisoria */
 .section_title::after {
     content: '';
     display: block;
-    width: 50%; /* Ancho de la línea (ajusta según necesites) */
-    height: 2px; /* Altura de la línea */
-    background-color: #ccc; /* Color de la línea */
-    margin: 10px auto; /* Centrar la línea */
+    width: 50%;
+    height: 2px;
+    background-color: #ccc;
+    margin: 10px auto;
 }
 
-/* Estilo para el nombre de la habitación */
 #room-name {
     margin:5px auto;
-    font-size: 1.3rem; /* Tamaño de letra más pequeño para el nombre de la habitación */
-    text-align: center; /* Centrar el texto */
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 #room-description {
-    max-width: 400px; /* Asegura que la descripción no exceda el ancho de la imagen */
-    margin: 10px auto; /* Centra el texto horizontalmente y añade margen */
-    text-align: center; /* Alinea el texto al centro */
-    height: 120px; /* Altura fija para el contenedor de descripción */
+    max-width: 400px;
+    margin: 10px auto;
+    text-align: center;
+    height: 120px;
 
 }
 
 
 #room-carousel-container {
-    display: flex;                /* Utiliza flexbox para centrar el contenido */
-    justify-content: center;      /* Centra horizontalmente el contenido */
-    align-items: center;          /* Centra verticalmente el contenido */
-    height: 100%;                 /* Asegúrate de que el contenedor tenga una altura definida */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .room-carousel {
-    display: flex;                /* Flexbox para la alineación horizontal */
-    align-items: center;          /* Alinea verticalmente los elementos dentro del carousel */
+    display: flex;
+    align-items: center;
 }
 
 .carousel-btn {
-    background-color: transparent; /* Botones con fondo transparente */
-    border: none;                  /* Sin borde */
-    font-size: 2rem;               /* Tamaño de fuente grande para los botones */
-    cursor: pointer;               /* Cambia el cursor al pasar sobre los botones */
-    margin: 0 10px;               /* Margen entre los botones y la imagen */
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 10px;
 }
 
 .carousel-btn:hover {
-    background-color: rgba(0, 123, 255, 0.8); /* Cambia el color de fondo al pasar el ratón */
-    color: white; /* Cambia el color del texto al pasar el ratón */
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
 }
 
 .room-image {
-    width: 400px; /* Ancho fijo */
-    height: 400px; /* Altura fija */
-    border-radius: 10px; /* Bordes redondeados */
-    display: block;                /* Se asegura de que la imagen se muestre como bloque */
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    display: block;
 }
 
 #room-image.fade-out {
@@ -93,33 +90,27 @@ body {
 }
 
 #prev-room {
-    left: 10px; /* Alinea a la izquierda */
+    left: 10px;
 }
 
 #next-room {
-    right: 10px; /* Alinea a la derecha */
+    right: 10px;
 }
 
-
-/* Ofertas */
-.offers-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #333;
-}
 
 /* Footer */
 footer {
     background-color: #000;
     color: #fff;
     padding: 30px 0;
+    text-align: 'center';
 }
 
 footer p {
     margin: 0;
 }
 
-/*imagen hotel*/
+/*Imagen Hotel*/
 .main-image {
     background-image: url('/img/plantabaja.png');
     background-size: cover;
@@ -133,4 +124,59 @@ footer p {
     color: red;
     font-size: 0.9em;
     margin-top: 5px;
+}
+
+/*Perfil*/
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-content {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.edit-profile-view {
+    display:none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.btn-danger {
+    background-color: #d33f34;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c53b3b;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
 }

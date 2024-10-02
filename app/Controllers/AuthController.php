@@ -20,11 +20,10 @@ class AuthController extends BaseController
     
             $validation->setRules([
                 'nombre' => 'required',
-                'apellido1' => 'required',
-                'apellido2' => 'required',
+                'apellido' => 'required',
+                'pais' => 'required',
+                'telefono' => 'required',
                 'email' => 'required|valid_email',
-                'password' => 'required|min_length[12]',
-                'confirm_password' => 'matches[password]',
             ]);
     
             if (!$validation->withRequest($this->request)->run()) {
@@ -35,19 +34,19 @@ class AuthController extends BaseController
             }
             $userModel = new UsuarioModel();
             $nombre = $this->request->getPost('nombre');
-            $apellido1 = $this->request->getPost('apellido1');
-            $apellido2 = $this->request->getPost('apellido2');
+            $apellido = $this->request->getPost('apellido');
+            $pais = $this->request->getPost('pais');
+            $telefono = $this->request->getPost('telefono');
             $email = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
 
-            $nombreCompleto = $nombre . ' ' . $apellido1 . ' ' . $apellido2;
+            $nombreCompleto = $nombre . ' ' . $apellido;
     
             $data = [
                 'nombre' => $nombre,
-                'apellido1' => $apellido1,
-                'apellido2' => $apellido2,
+                'apellido' => $apellido,
+                'pais' => $pais,
+                'telefono' => $telefono,
                 'email' => $email,
-                'password' => password_hash($password, PASSWORD_ARGON2I),
             ];
     
             $userModel->save($data);

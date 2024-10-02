@@ -15,7 +15,7 @@
 Nuestras instalaciones incluyen habitaciones espaciosas y exquisitamente decoradas, que combinan estilo contemporáneo con elementos clásicos, asegurando un ambiente acogedor y sofisticado. Cada habitación cuenta con comodidades modernas, como Wi-Fi de alta velocidad, televisión de pantalla plana y minibar, así como grandes ventanales que permiten la entrada de luz natural y ofrecen vistas panorámicas del océano.</p>
 </div>
 <div class="rooms text-center">
-    <h3 class="section_title">Alojamiento</h3>
+    <h3 class="section_title">Nuestros alojamientos</h3>
     <div class="room-card" id="room-carousel-container">
         <div class="room-carousel">
             <button id="prev-room" class="carousel-btn">←</button>
@@ -29,6 +29,24 @@ Nuestras instalaciones incluyen habitaciones espaciosas y exquisitamente decorad
     <p id="room-description">.</p>
 </div>
 
+<?= $this->endSection() ?>
+
+<?= $this->section('footer') ?>
+<footer class="footer text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h5>Conectar</h5>
+            <ul class="list-unstyled">
+                <li class="d-flex justify-content-center align-items-center">
+                    <a href="https://www.linkedin.com/in/juan-manuel-gl/" target="_blank" class="d-flex align-items-center">
+                        <i class="fab fa-linkedin me-2"></i> 
+                        LinkedIn
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>

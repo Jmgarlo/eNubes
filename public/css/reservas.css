@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /*Navbar*/
+  .navbar {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  .navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .navbar .language-select {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+  }
+
+  /*Filtros*/
+
+  .filter-input {
+    width: 100%; /* Ocupa el 100% del contenedor */
+    max-width: 150px; /* Establece un ancho máximo para los inputs */
+    margin: 0 auto; /* Centra los inputs */
+  }
+
+
+/*Datos habitacion*/
+
+.room-card {
+    /* Sin borde negro */
+    height: auto; /* Cambiar a auto para que se ajuste a contenido variable */
+    background-color: #f8f9fa;
+}
+
+.room-image {
+    object-fit: cover;
+    width: 100%; /* Cambiar a 100% para hacer la imagen responsiva */
+    height: 200px; /* Altura fija */
+}
+
+.room-card .card-body {
+    text-align: center;
+}
+
+.room-card .card-title {
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+}
+
+.room-card .card-text {
+    margin-bottom: 0.25rem;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-danger {
+    color: red;
+}
+
+.btn-dark {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
+
+/* Centrado y limitación del ancho de las tarjetas */
+.room-card-list {
+    max-width: 800px;  /* Ajusta este valor según sea necesario */
+}
+
+/* Alineación de los botones a la derecha */
+.d-flex.align-items-center.justify-content-md-end {
+    margin-left: auto; /* Alineación a la derecha en dispositivos más grandes */
+}
+
+

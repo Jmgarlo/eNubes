@@ -32,7 +32,7 @@ $(document).ready(function () {
         let formData = $("#loginForm").serialize();
 
         $.ajax({
-          url: "/validlogin", // Ruta donde se procesará el login en el servidor
+          url: "/validlogin",
           type: "POST",
           data: formData,
           success: (response) => {

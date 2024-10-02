@@ -13,6 +13,8 @@ class HabitacionModel extends Model
         'codigo',
         'nombre',
         'descripcion',
+        'camas',
+        'baños',
         'tipo',
         'precio',
         'imagen',
