@@ -10,10 +10,12 @@ class HabitacionModel extends Model
     protected $primaryKey = 'id';
     
     protected $allowedFields = [
+        'codigo',
         'nombre',
         'descripcion',
-        'precio',
         'tipo',
+        'precio',
+        'imagen',
         'disponibilidad'
     ];
 }

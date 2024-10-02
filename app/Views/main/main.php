@@ -1,58 +1,36 @@
-<?= $this->extend('layouts/index') ?> <!-- Extiende la plantilla principal -->
-<?= $this->section('content') ?> <!-- Inicia la sección de contenido -->
-    <!-- Image/Video Section -->
-    <div class="main-image">
-        <!-- Placeholder for video or image -->
-    </div>
+<?= $this->extend('layouts/index') ?>
+<?= $this->section('content') ?>
+<div class="main-image">
+</div>
 
-    <!-- Address and Map -->
-    <div class="text-center my-4">
-        <h3>Dirección del Hotel eNubes</h3>
-        <p>Calle Falsa 123, Madrid, España</p>
-        <a href="#" id="show-map" class="btn btn-secondary">Mostrar en el mapa</a>
-    </div>
+<div class="text-center my-4">
+    <h3 class="section_title">Dirección del Hotel eNubes</h3>
+    <p>Calle Falsa 123, Madrid, España</p>
+    <a href="#" id="show-map" class="btn btn-secondary">Mostrar en el mapa</a>
+</div>
+<div class="description text-center">
+    <h3 class="section_title">Descripción del Hotel</h3>
+    <p class="descripcion_hotel">El Hotel eNubes es un exclusivo hotel de lujo ubicado en una de las zonas más privilegiadas, con impresionantes vistas al mar. Ofrecemos una experiencia única de confort y elegancia, donde cada detalle está diseñado para brindar a nuestros huéspedes un servicio de primera clase.
 
-    <!-- Hotel Description -->
-    <div class="description text-center">
-        <h3>Descripción del Hotel</h3>
-        <p>El Hotel eNubes es un hotel de lujo con vistas al mar y servicios de primera clase para una estancia inolvidable.</p>
-    </div>
-
-    <!-- Offers Section -->
-    <div class="offers text-center">
-        <h3>Ofertas Especiales</h3>
-        <p>Descuento del 20% para estancias de más de 3 noches.</p>
-    </div>
-
-    <!-- Best Rated Rooms Section -->
-    <div class="best-rooms text-center">
-        <h3>Habitaciones Mejor Valoradas</h3>
-        <!-- Placeholder for best-rated rooms, you can add Bootstrap cards or any other style here -->
-        <div class="row">
-            <div class="col-md-4">Habitación 1</div>
-            <div class="col-md-4">Habitación 2</div>
-            <div class="col-md-4">Habitación 3</div>
+Nuestras instalaciones incluyen habitaciones espaciosas y exquisitamente decoradas, que combinan estilo contemporáneo con elementos clásicos, asegurando un ambiente acogedor y sofisticado. Cada habitación cuenta con comodidades modernas, como Wi-Fi de alta velocidad, televisión de pantalla plana y minibar, así como grandes ventanales que permiten la entrada de luz natural y ofrecen vistas panorámicas del océano.</p>
+</div>
+<div class="rooms text-center">
+    <h3 class="section_title">Alojamiento</h3>
+    <div class="room-card" id="room-carousel-container">
+        <div class="room-carousel">
+            <button id="prev-room" class="carousel-btn">←</button>
+            <div class="room-content">
+                <img id="room-image" src="" alt="Imagen de la habitación" class="room-image">
+            </div>
+            <button id="next-room" class="carousel-btn">→</button>
         </div>
     </div>
+    <h2 id="room-name">.</h2>
+    <p id="room-description">.</p>
+</div>
 
-    <!-- Suites and Hotel Images -->
-    <div class="hotel-images text-center">
-        <h3>Fotos de nuestras suites y áreas</h3>
-        <div class="row">
-            <div class="col-md-4">Suite 1</div>
-            <div class="col-md-4">Suite 2</div>
-            <div class="col-md-4">Suite 3</div>
-        </div>
-    </div>
+<?= $this->endSection() ?>
 
-    <!-- Amenities Section -->
-    <div class="amenities text-center">
-        <h3>Comodidades del Hotel</h3>
-        <div class="row">
-            <div class="col-md-3">Gimnasio</div>
-            <div class="col-md-3">Spa</div>
-            <div class="col-md-3">Masajes</div>
-            <div class="col-md-3">Piscina</div>
-        </div>
-    </div>
-<?= $this->endSection() ?> <!-- Finaliza la sección de contenido -->
+<?= $this->section('scripts') ?>
+<script src="/js/habitaciones.js"></script>
+<?= $this->endSection() ?>

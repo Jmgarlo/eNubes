@@ -1,62 +1,136 @@
-/* public/styles.css */
-
-/* Estilos para el header *********************************************************/
-.navbar {
-    padding: 15px; /* Ajusta el padding del navbar */
+/* Tipografía Global */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
 }
 
-.navbar a {
-    color: #ffffff; /* Color de texto blanco */
+/* Navbar */
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
-.navbar a:hover {
-    color: #cccccc; /* Color al pasar el mouse */
+.nav-link {
+    color: #ffffff;
+    font-size: 1rem;
 }
 
-.btn-primary {
-    background-color: #007bff; /* Color de fondo del botón */
-    border-color: #007bff; /* Color del borde del botón */
+/* Sección de Habitaciones */
+
+.descripcion_hotel {
+    max-width: 700px; /* Asegura que la descripción no exceda el ancho de la imagen */
+    margin: 10px auto; /* Centra el texto horizontalmente y añade margen */
+    text-align: center; /* Alinea el texto al centro */
 }
 
-.btn-primary:hover {
-    background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+.section_title {
+    font-size: 1.8rem; /* Aumentar tamaño de letra de los títulos */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    position: relative; /* Para posicionar la línea */
 }
-/*************************************************************************************/
 
+/* Estilo para la línea divisoria */
+.section_title::after {
+    content: '';
+    display: block;
+    width: 50%; /* Ancho de la línea (ajusta según necesites) */
+    height: 2px; /* Altura de la línea */
+    background-color: #ccc; /* Color de la línea */
+    margin: 10px auto; /* Centrar la línea */
+}
+
+/* Estilo para el nombre de la habitación */
+#room-name {
+    margin:5px auto;
+    font-size: 1.3rem; /* Tamaño de letra más pequeño para el nombre de la habitación */
+    text-align: center; /* Centrar el texto */
+}
+
+#room-description {
+    max-width: 400px; /* Asegura que la descripción no exceda el ancho de la imagen */
+    margin: 10px auto; /* Centra el texto horizontalmente y añade margen */
+    text-align: center; /* Alinea el texto al centro */
+    height: 120px; /* Altura fija para el contenedor de descripción */
+
+}
+
+
+#room-carousel-container {
+    display: flex;                /* Utiliza flexbox para centrar el contenido */
+    justify-content: center;      /* Centra horizontalmente el contenido */
+    align-items: center;          /* Centra verticalmente el contenido */
+    height: 100%;                 /* Asegúrate de que el contenedor tenga una altura definida */
+}
+
+.room-carousel {
+    display: flex;                /* Flexbox para la alineación horizontal */
+    align-items: center;          /* Alinea verticalmente los elementos dentro del carousel */
+}
+
+.carousel-btn {
+    background-color: transparent; /* Botones con fondo transparente */
+    border: none;                  /* Sin borde */
+    font-size: 2rem;               /* Tamaño de fuente grande para los botones */
+    cursor: pointer;               /* Cambia el cursor al pasar sobre los botones */
+    margin: 0 10px;               /* Margen entre los botones y la imagen */
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 123, 255, 0.8); /* Cambia el color de fondo al pasar el ratón */
+    color: white; /* Cambia el color del texto al pasar el ratón */
+}
+
+.room-image {
+    width: 400px; /* Ancho fijo */
+    height: 400px; /* Altura fija */
+    border-radius: 10px; /* Bordes redondeados */
+    display: block;                /* Se asegura de que la imagen se muestre como bloque */
+}
+
+#room-image.fade-out {
+    opacity: 0;
+}
+
+#prev-room {
+    left: 10px; /* Alinea a la izquierda */
+}
+
+#next-room {
+    right: 10px; /* Alinea a la derecha */
+}
+
+
+/* Ofertas */
+.offers-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/*imagen hotel*/
 .main-image {
     background-image: url('/img/plantabaja.png');
-    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    width: 100%; /* Ocupar todo el ancho de la página */
-    height: 80vh; /* Ocupar el 80% del alto de la ventana del navegador */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 80vh;
 }
 
-.description, .offers, .best-rooms, .hotel-images, .amenities {
-    padding: 30px;
-}
-
-.footer {
-    background-color: #343a40;
-    color: white;
-    padding: 40px;
-}
-
-.footer h5 {
-    color: #ffffff;
-}
-
-.footer a {
-    color: #bbbbbb;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    color: white;
-}
-
-.copyright {
-    background-color: #212529;
-    color: white;
-    text-align: center;
-    padding: 15px;
+/* otros */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
 }

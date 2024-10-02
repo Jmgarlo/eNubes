@@ -1,36 +1,47 @@
 <?= $this->extend('layouts/index') ?>
-<!-- Extiende la plantilla principal -->
 <?= $this->section('content') ?>
-<!-- Inicia la sección de contenido -->
 
 <h1>Registro</h1>
 
-<!-- Formulario de Registro -->
-<form action="/register" id="registroForm" method="post">
-  <?= csrf_field() ?>
-
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" required /><br />
-
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required /><br />
-
-  <label for="password">Contraseña:</label>
-  <input type="password" id="password" name="password" required /><br />
-
-  <label for="password_confirm">Confirmar contraseña:</label>
-  <input
-    type="password"
-    id="password_confirm"
-    name="password_confirm"
-    required
-  /><br />
-
-  <button type="submit">Registrarse</button>
+<form id="registerForm">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control">
+        <div class="error-message" id="nombre-error"></div>
+    </div>
+    <div class="form-group">
+        <label for="apellido1">Primer apellido</label>
+        <input type="text" id="apellido1" name="apellido1" class="form-control">
+        <div class="error-message" id="apellido1-error"></div>
+    </div>
+    <div class="form-group">
+        <label for="apellido2">Segundo apellido</label>
+        <input type="text" id="apellido2" name="apellido2" class="form-control">
+        <div class="error-message" id="apellido2-error"></div>
+    </div>
+     <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" class="form-control">
+        <div class="error-message" id="email-error"></div>
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" class="form-control" placerholder="Escriba su contraseña">
+        <div class="error-message" id="password-error"></div>
+    </div>
+    <div class="form-group">
+        <label for="confirm_password">Confirmar Contraseña</label>
+        <input type="password" id="confirm_password" name="confirm_password" class="form-control" placerholder="Repita su contraseña">
+        <div class="error-message" id="confirm-password-error"></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <div id="registerMessage"></div>
 </form>
 
-<!-- Opción para redirigir a la página de inicio de sesión -->
 <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>.</p>
 
 <?= $this->endSection() ?>
-<!-- Finaliza la sección de contenido -->
+
+<?= $this->section('scripts') ?>
+    <script src="/js/registro.js"></script>
+<?= $this->endSection() ?>

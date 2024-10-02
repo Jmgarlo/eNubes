@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Controllers;
+/*namespace App\Controllers;
 
-use CodeIgniter\Controller;
-
-class UsuarioController extends Controller
+class UsuarioController extends BaseController
 {
     public function perfil()
     {
         if (!session()->get('logged_in')) {
-            return redirect()->to('/login'); // Redirigir si no está autenticado
+            return redirect()->to('/login'); 
         }
 
-        return view('perfil'); // Cargar la vista de perfil
+        return view('perfil');
     }
-}
+}*/

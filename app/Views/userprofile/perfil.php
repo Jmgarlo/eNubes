@@ -10,7 +10,6 @@
     <div class="container">
         <h1>Perfil de <?= session()->get('nombre'); ?></h1>
         <p>Email: <?= session()->get('email'); ?></p>
-        <!-- Aquí puedes añadir más información sobre el usuario -->
         <a href="/logout" class="btn btn-danger">Cerrar Sesión</a>
     </div>
 </body>

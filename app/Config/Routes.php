@@ -5,17 +5,20 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
-$routes->get('reservas', 'Reservas::index');
-$routes->get('reservas/nueva', 'Reservas::nueva');
-$routes->post('reservas/confirmar', 'Reservas::confirmar');
+$routes->get('/', 'HomeController::index');
 
+$routes->get('/geHabitaciones', 'HabitacionController::getHabitaciones');
+$routes->get('/filtrarHabitaciones', 'HabitacionController::filtrarHabitaciones');
+
+$routes->get('/reservas', 'ReservasController::index');
+$routes->get('/reservas/nueva', 'ReservasController::nueva');
+$routes->post('/reservas/confirmar', 'ReservasController::confirmar');
 
 $routes->get('/register', 'AuthController::register');
-$routes->post('/register', 'AuthController::processRegister');
+$routes->post('/validregister', 'AuthController::processRegister');
 
 $routes->get('/login', 'AuthController::login');
-$routes->post('/login', 'AuthController::processLogin');
+$routes->post('/validlogin', 'AuthController::processLogin');
 
 $routes->get('/logout', 'AuthController::logout');
 
