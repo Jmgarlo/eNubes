@@ -4,9 +4,18 @@ namespace App\Controllers;
 
 use App\Models\UsuarioModel;
 use App\Services\EmailService;
+use App\Models\ReservaModel;
+use App\Models\EstadoModel;
 
 class PerfilController extends BaseController
 {
+    public function __construct()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->send();
+        }
+    }
+
     public function index()
     {
 
@@ -14,7 +23,41 @@ class PerfilController extends BaseController
         $userId = session()->get('user_id');
         $user = $userModel->getUserById($userId);
 
+        $reservasModel = new ReservaModel();
+        $reservas = $reservasModel->getReservesById($userId);
+
         return view('userprofile/perfil', ['user' => $user]);
+    }
+
+    public function reservas()
+    {
+        $userId = session()->get('user_id');
+        $reservaModel = new ReservaModel();
+        $reservas = $reservaModel->getReservesById($userId);
+
+        $estadoModel = new EstadoModel();
+
+        foreach ($reservas as &$reserva) { 
+            $estado = $estadoModel->getEstadoById($reserva['id_estado']);
+            if ($estado) {
+                $reserva['nombre_estado'] = $estado['nombre_estado'];
+                $reserva['descripcion'] = $estado['descripcion'];
+                $reserva['clase'] = $estado['clase'];
+            }
+        }
+
+
+        if ($reservas) {
+            return $this->response->setJSON([
+                'success' => true,
+                'reservas' => $reservas
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No se encontraron reservas.'
+            ]);
+        }
     }
 
     public function update()

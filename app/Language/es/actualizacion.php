@@ -1,0 +1,23 @@
+<?php
+return [
+    'updateReservationTitle' => 'Actualizar Reserva',
+    'reservationDetails' => 'Detalles de la Reserva',
+    'reservationLocator' => 'Localizador',
+    'roomName' => 'Nombre de la Habitación',
+    'checkIn' => 'Check-in',
+    'checkOut' => 'Check-out',
+    'numDays' => 'Días de Estancia',
+    'pricePerDay' => 'Precio por Día',
+    'totalPrice' => 'Precio Total',
+    'saveChanges' => 'Guardar Cambios',
+    'cancel' => 'Cancelar',
+    'paymentMethod' => 'Método de Pago',
+    'cardName' => 'Nombre en la Tarjeta',
+    'cardNumber' => 'Número de Tarjeta',
+    'cardExpiry' => 'Fecha de Expiración',
+    'cardCVC' => 'CVC',
+    'confirmPayment' => 'Confirmar Pago',
+    'reservationStatus' => 'Estado de la Reserva',
+    'state' => 'Estado',
+    'price' => 'Precio',
+];

@@ -1,6 +1,9 @@
+import { lang, tradHabitaciones } from './config.js';
+
 $(document).ready(function () {
   let habitaciones = [];
   let currentIndex = 0;
+
   const getRooms = () => {
     $.ajax({
       url: "/geHabitaciones",
@@ -19,10 +22,12 @@ $(document).ready(function () {
 
         if (habitaciones.length > 0) {
           updateCarousel();
+        } else {
+          alert(tradHabitaciones[lang].noRoomsAvailable);
         }
       },
       error: function (xhr, status, error) {
-        console.error("Error al obtener habitaciones:", error);
+        console.error(tradHabitaciones[lang].fetchingError, error);
       },
     });
   };
@@ -30,7 +35,6 @@ $(document).ready(function () {
   const updateCarousel = () => {
     const habitacion = habitaciones[currentIndex];
     const firstImageUrl = habitacion.url_foto;
-    console.log($('#room-name').text());
     
     $('#room-name').text(habitacion.nombre);
     $('#room-description').text(habitacion.descripcion);

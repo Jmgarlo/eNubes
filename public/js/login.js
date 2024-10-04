@@ -1,3 +1,5 @@
+import { lang, tradLogin } from './config.js';
+
 $(document).ready(function () {
   const handleLogin = () => {
     $("#loginForm").on("submit", function (e) {
@@ -10,21 +12,15 @@ $(document).ready(function () {
       let formValid = true;
 
       if (!email) {
-        $("#email-error").text(
-          "El campo de correo electrónico no puede estar vacío."
-        );
+        $("#email-error").text(tradLogin[lang].emailEmpty);
         formValid = false;
       } else if (!validateEmail(email)) {
-        $("#email-error").text(
-          "Por favor, ingresa un correo electrónico válido."
-        );
+        $("#email-error").text(tradLogin[lang].emailInvalid);
         formValid = false;
       }
 
       if (!password) {
-        $("#password-error").text(
-          "El campo de contraseña no puede estar vacío."
-        );
+        $("#password-error").text(tradLogin[lang].passwordEmpty);
         formValid = false;
       }
 
@@ -51,7 +47,7 @@ $(document).ready(function () {
           },
           error: function (xhr, status, error) {
             $("#loginMessage").html(
-              '<div class="alert alert-danger">Error en el servidor. Inténtalo de nuevo más tarde.</div>'
+              '<div class="alert alert-danger">' + tradLogin[lang].serverError + "</div>"
             );
           },
         });

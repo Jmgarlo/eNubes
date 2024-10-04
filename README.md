@@ -1,68 +1,97 @@
-# CodeIgniter 4 Application Starter
+# Documentación Técnica
 
-## What is CodeIgniter?
+## Nombre del Proyecto
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+**Descripción breve del proyecto.** Explica qué hace el proyecto y su propósito.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Instalación
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Para instalar y ejecutar el proyecto en tu entorno local, sigue estos pasos:
 
-## Installation & updates
+### Requisitos previos
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- [PHP](https://www.php.net/downloads.php) (versión 7.4 o superior)
+- [Composer](https://getcomposer.org/download/)
+- [CodeIgniter 4](https://codeigniter4.github.io/userguide/intro/installation.html) (verifica que tengas la última versión)
+- Un servidor web (como Apache o Nginx) y un servidor de base de datos (como MySQL)
+- 
+En el caso específico del proyecto, se ha usado XAMPP, que ya trae PHP y un servidor Apache
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### Pasos de instalación
 
-## Setup
+1. Clona el repositorio:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+   ```bash
+   git clone https://github.com/tu_usuario/tu_proyecto.git
+   cd tu_proyecto
+2.Instala las dependencias:
 
-## Important Change with index.php
+    bash
+    composer install
+    
+3.Configura el entorno:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Copia el archivo de ejemplo de configuración y renómbralo:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+    bash
 
-**Please** read the user guide for a better explanation of how CI4 works!
+    cp .env.example .env
+Luego, abre el archivo .env y configura la conexión a la base de datos y otros parámetros necesarios.
 
-## Repository Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+4.Inicia el servidor:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Puedes usar el servidor incorporado de CodeIgniter para ejecutar la aplicación:
 
-## Server Requirements
+    bash
+    php spark serve
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+Luego, abre tu navegador y visita http://localhost:8080.
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## Decisiones en el desarrollo
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+A continuación se detallan algunas decisiones arquitectónicas clave tomadas durante el desarrollo del proyecto:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+1. **Sistema de Plantillas o Layouts:**
+   - Se implementó un sistema de plantillas utilizando la funcionalidad de vistas de CodeIgniter. Esto permite la creación de un diseño coherente y reutilizable en toda la aplicación, facilitando la gestión de la interfaz de usuario. Al separar el contenido específico de cada página de la estructura general, como la barra de navegación y el pie de página, se logra una mayor claridad en el código y una más fácil mantenibilidad. Además, este enfoque permite cambios rápidos en el diseño general sin tener que modificar cada vista individualmente.
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+2. **Separación de Archivos JavaScript:**
+   - Se tomó la decisión de organizar el código JavaScript en archivos separados según su funcionalidad. Esto incluye dividir los scripts en componentes o módulos específicos en lugar de tener todo el código en un solo archivo. Esta práctica mejora la legibilidad del código y facilita la depuración. También se ha implementado un sistema de módulos, lo que permite cargar solo los scripts necesarios para cada vista, optimizando así el rendimiento de la aplicación.
+
+3. **Uso de AJAX:**
+   - Se incorporó AJAX para manejar interacciones asincrónicas entre el cliente y el servidor. Esto permite actualizaciones dinámicas de la interfaz de usuario sin necesidad de recargar toda la página. Por ejemplo, al cambiar el idioma de la aplicación, se envía una solicitud AJAX al servidor para actualizar la configuración de idioma del usuario, lo que mejora la experiencia del usuario al ofrecer una transición más fluida y rápida. AJAX también se utiliza para otras funcionalidades como la búsqueda y el filtrado de datos.
+
+4. **Uso de XAMPP:**
+   - Para el desarrollo local y la prueba del proyecto, se eligió XAMPP como entorno de servidor. XAMPP es un paquete que incluye Apache, MySQL y PHP, lo que facilita la configuración de un entorno de desarrollo. Esta elección permite a los desarrolladores instalar y configurar rápidamente un servidor web y una base de datos sin complicaciones adicionales. Además, XAMPP es compatible con sistemas operativos Windows, macOS y Linux, lo que lo convierte en una herramienta versátil para el desarrollo de aplicaciones web.
+
+---
+
+## Cosas Pendientes
+
+A pesar de que se entrega una primera versión de la prueba, hay varios aspectos que aún necesitan ser mejorados. La entrega se realiza debido a que han surgido diversos problemas durante el desarrollo y, además, ya ha pasado una semana desde que se envió el proyecto. Ha penalizado mucho el hecho de querer hacer demasiadas cosas que al final he tenido que recortar
+Sin embargo, tengo la intención de continuar trabajando en las siguientes mejoras:
+
+1. **Optimizar y estandarizar código:**
+   - Debido a que CodeIgniter4 es relativamente nuevo para mi(he usado Laravel), hay cosas que me gustaría optimizar
+
+2. **Soporte Multilenguaje Funcional:**
+   - El soporte multilenguaje está sin terminar.
+
+3. **Mejorar Vistas de las Habitaciones, con Más Detalles e Imágenes:**
+   - Mejorar el detalle de las reservas, para que se puedan ver todas las fotos de las habitaciones
+
+4. **Mejorar la Pasarela de Pago:**
+   - Falta mejorar el aspecto de la pasarela de pago y validación de datos.
+
+5. **Mejorar el Contenido de los Emails:**
+   - Los correos electrónicos enviados a los usuarios necesitan revisiones para asegurar que sean claros, informativos y visualmente atractivos. Se busca crear plantillas de correo que reflejen mejor la marca y que incluyan información esencial de forma estructurada.
+
+6. **Automatizar Envío de Emails y Actualización de Estados de Reservas:**
+   - Se planea implementar un sistema automatizado para el envío de correos electrónicos relacionados con la confirmación de reservas y actualizaciones de estado. Esto mejorará la eficiencia y la comunicación con los usuarios.
+
+7. **Añadir la Posibilidad de Loguearte con Google y Añadir Autenticación de 2 Factores:**
+   - Para mejorar la seguridad y la facilidad de uso, se considerará la integración de opciones de inicio de sesión con Google. También se explorará la posibilidad de implementar autenticación de dos factores para ofrecer un nivel adicional de seguridad a los usuarios al acceder a sus cuentas.
+
+---

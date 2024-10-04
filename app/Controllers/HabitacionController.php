@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\HabitacionModel;
+use App\Models\ReservaModel;
 
 class HabitacionController extends BaseController
 {
@@ -26,22 +27,38 @@ class HabitacionController extends BaseController
         $baños = $this->request->getGet('baños');
         $disponibilidad = $this->request->getGet('disponibilidad');
         $precio = $this->request->getGet('precio');
-        $sort = $this->request->getGet('sort');
+        $tipo = $this->request->getGet('tipo');
+        
         if ($fecha_inicio && $fecha_fin) {
             if ($capacidad) {
-                $builder->where('capacidad >=', $capacidad);
+                $builder->where('habitaciones.capacidad >=', $capacidad);
             }
     
             if ($camas) {
-                $builder->where('camas >=', $camas);
+                $builder->where('habitaciones.camas >=', $camas);
             }
     
             if ($baños) {
-                $builder->where('baños >=', $baños);
+                $builder->where('habitaciones.baños >=', $baños);
             }
     
             if ($precio) {
-                $builder->where('precio <=', $precio);
+                $builder->where('habitaciones.precio <=', $precio);
+            }
+            if ($tipo) {
+                if($tipo== 1){
+                    $tipo = 'individual';
+                }else if ($tipo == 2){
+                    $tipo = 'doble';
+                }else if ($tipo == 3){
+                    $tipo = 'suite';
+                }else if ($tipo == 4){
+                    $tipo = 'lujo';
+                }else {
+                    $tipo = 'individual';
+                }
+                    
+                $builder->where('habitaciones.tipo', $tipo);
             }
             if($disponibilidad) {
                 if($disponibilidad == 'on') {
@@ -51,8 +68,39 @@ class HabitacionController extends BaseController
                 }
                 $builder->where('disponibilidad', $disponibilidad);
             }
+
             $query = $builder->get();
             $habitaciones = $query->getResult();
+
+            $habitaciones_filtradas = [];
+
+            foreach ($habitaciones as $habitacion) {
+                $reservas = $db->table('reservas')
+                                ->where('id_habitacion', $habitacion->id)
+                                ->get()
+                                ->getResult();
+        
+
+                if (empty($reservas)) {
+                    $habitaciones_filtradas[] = $habitacion;
+                    continue;
+                }
+        
+                $disponible = true;
+                foreach ($reservas as $reserva) {
+                    if (!($fecha_inicio < $reserva->fecha_inicio && $fecha_fin < $reserva->fecha_inicio) ||
+                    !($fecha_inicio > $reserva->fecha_fin && $fecha_fin > $reserva->fecha_fin)) {
+                        $disponible = false;
+                        break;
+                    }
+                }
+        
+                if ($disponible) {
+                    $habitaciones_filtradas[] = $habitacion;
+                }
+            }
+        
+            $habitaciones = $habitaciones_filtradas;
         } else {
             $habitaciones = $habitacionModel->findAll();
         }
@@ -72,7 +120,7 @@ class HabitacionController extends BaseController
         ];
 
 
-        foreach ($habitacionesPorTipo as $tipo => &$habitaciones) {
+        foreach ($habitacionesPorTipo as &$habitaciones) {
             foreach ($habitaciones as &$habitacion) {
                 $idHabitacion = $habitacion['id'];
                 $urlFoto = "img/{$habitacion['tipo']}/{$idHabitacion}/1.png";
@@ -82,4 +130,6 @@ class HabitacionController extends BaseController
 
         return $this->response->setJSON($habitacionesPorTipo);
     }
+
+    
 }

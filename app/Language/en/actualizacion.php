@@ -1,0 +1,23 @@
+<?php
+return [
+    'updateReservationTitle' => 'Update Reservation',
+    'reservationDetails' => 'Reservation Details',
+    'reservationLocator' => 'Locator',
+    'roomName' => 'Room Name',
+    'checkIn' => 'Check-in',
+    'checkOut' => 'Check-out',
+    'numDays' => 'Number of Days',
+    'pricePerDay' => 'Price per Day',
+    'totalPrice' => 'Total Price',
+    'saveChanges' => 'Save Changes',
+    'cancel' => 'Cancel',
+    'paymentMethod' => 'Payment Method',
+    'cardName' => 'Name on Card',
+    'cardNumber' => 'Card Number',
+    'cardExpiry' => 'Expiration Date',
+    'cardCVC' => 'CVC',
+    'confirmPayment' => 'Confirm Payment',
+    'reservationStatus' => 'Reservation Status',
+    'state' => 'State',
+    'price' => 'Price',
+];

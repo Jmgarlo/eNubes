@@ -20,4 +20,20 @@ class HabitacionModel extends Model
         'imagen',
         'disponibilidad'
     ];
+
+    public function getPrecioHabitacion($id) {
+        $habitacion = $this->find($id);
+        return $habitacion['precio'];
+    }
+
+    public function getNombreHabitacion($id) {
+        $habitacion = $this->find($id);
+        return $habitacion['nombre'];
+    }
+
+    public function getHabitacion($id) {
+        $habitacion = $this->find($id);
+        return $habitacion;
+    }
+
 }

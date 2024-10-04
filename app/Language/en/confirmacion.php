@@ -1,0 +1,21 @@
+<?php
+return [
+    'reservationConfirmationTitle' => 'Reservation Confirmation',
+    'roomDetails' => 'Room Details',
+    'roomName' => 'Room Name',
+    'checkIn' => 'Check-in',
+    'checkOut' => 'Check-out',
+    'numDays' => 'Number of Days',
+    'pricePerDay' => 'Price per Day',
+    'totalPrice' => 'Total Price',
+    'reservationStatus' => 'Reservation Status',
+    'status' => 'Status',
+    'paymentMethod' => 'Payment Method',
+    'cardName' => 'Name on Card',
+    'cardNumber' => 'Card Number',
+    'cardExpiry' => 'Expiration Date',
+    'cardCVC' => 'CVC',
+    'simulatePayment' => 'Simulate Payment',
+    'cancelReservation' => 'Cancel Reservation',
+    'payNow' => 'Pay Now',
+];

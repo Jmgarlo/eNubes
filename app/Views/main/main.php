@@ -4,23 +4,20 @@
 </div>
 
 <div class="text-center my-4">
-    <h3 class="section_title">Dirección del Hotel eNubes</h3>
-    <p>Calle Falsa 123, Madrid, España</p>
-    <a href="#" id="show-map" class="btn btn-secondary">Mostrar en el mapa</a>
+    <h3 class="section_title"><?= lang('index.hotel_address_title'); ?></h3>
+    <p><?= lang('index.hotel_address'); ?></p>
 </div>
 <div class="description text-center">
-    <h3 class="section_title">Descripción del Hotel</h3>
-    <p class="descripcion_hotel">El Hotel eNubes es un exclusivo hotel de lujo ubicado en una de las zonas más privilegiadas, con impresionantes vistas al mar. Ofrecemos una experiencia única de confort y elegancia, donde cada detalle está diseñado para brindar a nuestros huéspedes un servicio de primera clase.
-
-Nuestras instalaciones incluyen habitaciones espaciosas y exquisitamente decoradas, que combinan estilo contemporáneo con elementos clásicos, asegurando un ambiente acogedor y sofisticado. Cada habitación cuenta con comodidades modernas, como Wi-Fi de alta velocidad, televisión de pantalla plana y minibar, así como grandes ventanales que permiten la entrada de luz natural y ofrecen vistas panorámicas del océano.</p>
+    <h3 class="section_title"><?= lang('index.hotel_description_title'); ?></h3>
+    <p class="descripcion_hotel"><?= lang('index.hotel_description'); ?></p>
 </div>
 <div class="rooms text-center">
-    <h3 class="section_title">Nuestros alojamientos</h3>
+    <h3 class="section_title"><?= lang('index.our_accommodations_title'); ?></h3>
     <div class="room-card" id="room-carousel-container">
         <div class="room-carousel">
             <button id="prev-room" class="carousel-btn">←</button>
             <div class="room-content">
-                <img id="room-image" src="" alt="Imagen de la habitación" class="room-image">
+                <img id="room-image" src="" alt="<?= lang('index.room_image_alt'); ?>" class="room-image">
             </div>
             <button id="next-room" class="carousel-btn">→</button>
         </div>
@@ -50,5 +47,5 @@ Nuestras instalaciones incluyen habitaciones espaciosas y exquisitamente decorad
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-<script src="/js/habitaciones.js"></script>
+<script type="module" src="/js/habitaciones.js"></script>
 <?= $this->endSection() ?>

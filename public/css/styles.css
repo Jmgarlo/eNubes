@@ -180,3 +180,63 @@ footer p {
 .btn-secondary:hover {
     background-color: #5a6268;
 }
+
+/*Lista reservas*/
+.reserva-card {
+    /* Estilos similares a .room-card */
+    height: auto;
+    background-color: #f8f9fa;
+    border: none; /* Eliminar el borde negro */
+}
+
+.reserva-card .card-body {
+    text-align: center; /* Centramos el contenido de la reserva */
+}
+
+.reserva-card .card-title {
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+}
+
+.reserva-card .card-text {
+    margin-bottom: 0.25rem;
+}
+
+/* Estilos para los textos de estado */
+.text-success {
+    color: green;
+}
+
+.text-warning {
+    color: orange;
+}
+
+.text-danger {
+    color: red;
+}
+
+/* Estilos del botón "Ver Detalles" */
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* Estilos para la lista de reservas, centrado y limitación de ancho */
+.reserva-card-list {
+    max-width: 800px;  /* Ajusta este valor si es necesario */
+    margin: 0 auto;    /* Centra la lista */
+}
+
+/* Alineación de los botones a la derecha */
+.d-flex.align-items-center.justify-content-end {
+    margin-left: auto;
+}
+
+/* Imagen (si en algún momento se decide agregar) */
