@@ -23,7 +23,8 @@ En el caso específico del proyecto, se ha usado XAMPP, que ya trae PHP y un ser
 
 1. Clona el repositorio:
 
-   ```bash
+   ```
+   bash
    git clone https://github.com/tu_usuario/tu_proyecto.git
    cd tu_proyecto
 2.Instala las dependencias:
