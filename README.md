@@ -34,12 +34,21 @@ En el caso específico del proyecto, se ha usado XAMPP, que ya trae PHP y un ser
     
 3.Configura el entorno:
 
-Copia el archivo de ejemplo de configuración y renómbralo:
+La configuración de .env:
 
     bash
 
-    cp .env.example .env
-Luego, abre el archivo .env y configura la conexión a la base de datos y otros parámetros necesarios.
+    CI_ENVIRONMENT = development
+
+      SMTP_HOST=smtp.gmail.com
+      SMTP_USER= Aquí va un correo de Gmail
+      SMTP_PASSWORD= Aquí iria la contraseña de aplicación de Gmail
+      SMTP_PORT=587
+      SMTP_CRYPTO=tls
+      
+      APP_BASE_URL=http://localhost
+      APP_PORT=8080
+
 
 
 4.Inicia el servidor:
